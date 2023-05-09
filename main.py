@@ -10,7 +10,8 @@ if __name__ == '__main__':
         fromCity = air_stations.stations[fromCity]
         toCity = air_stations.stations[toCity]
         airline_tickets = airline_ticket.parseInfo(fromCity, toCity, tripDate)
-        airline_ticket.TrainsCollection(airline_tickets).pretty_print()
+        airline = airline_ticket.AirlineCollection
+        airline(airline_tickets).pretty_print()
     except Exception as e:
         print(e.args)
         print("未查询到相关航班信息，请检查输入信息是否有误！")

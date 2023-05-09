@@ -4,7 +4,7 @@ import json
 from prettytable import PrettyTable
 
 
-class TrainsCollection:
+class AirlineCollection:
     header = '航空公司 航班 出发地 到达地 机场 时间 价格 余票'.split()
 
     def __init__(self, airline_tickets):
