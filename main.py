@@ -4,7 +4,7 @@ import air_stations
 if __name__ == '__main__':
     fromCity = input("输入出发城市：")
     toCity = input("输入到达城市：")
-    tripDate = input("输入出发日期：")
+    tripDate = input("输入出发日期（格式：2000-01-01）：")
     try:
         fromCity = air_stations.stations[fromCity]
         toCity = air_stations.stations[toCity]

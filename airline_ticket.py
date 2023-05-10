@@ -4,7 +4,7 @@ from prettytable import PrettyTable
 
 
 class AirlineCollection:
-    header = '航空公司 航班 出发地 到达地 机场 时间 价格 余票'.split()
+    header = '航空公司 航班 出发地 出发机场 出发时间 到达地 到达机场 到达时间 价格 余票'.split()
 
     def __init__(self, airline_tickets):
         self.airline_tickets = airline_tickets
@@ -16,11 +16,15 @@ class AirlineCollection:
                 item["airlineName"],
                 item["flightNumber"],
                 item["departureCityName"],
+                item["departureAirportName"] + item["departureTerminalName"],
+                item["departureDate"],
                 item["arrivalCityName"],
-                '\n'.join([item["departureAirportName"] + item["departureTerminalName"],
-                           item["arrivalAirportName"] + item["arrivalTerminalName"]]),
-                '\n'.join([item["departureDate"],
-                           item["arrivalDate"]]),
+                item["arrivalAirportName"] + item["arrivalTerminalName"],
+                item["arrivalDate"],
+                # '\n'.join([item["departureAirportName"] + item["departureTerminalName"],
+                #            item["arrivalAirportName"] + item["arrivalTerminalName"]]),
+                # '\n'.join([item["departureDate"],
+                #            item["arrivalDate"]]),
                 item["price"],
                 item["seatCount"]
             ]
@@ -32,7 +36,7 @@ class AirlineCollection:
         for airline_data in self.plains:
             pt.add_row(airline_data)
         pt.align = "c"
-        print(pt.get_string(sortby="时间"))
+        print(pt.get_string(sortby="出发时间"))
 
 
 def getResponse(fromCity, toCity, tripDate):
